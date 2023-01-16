@@ -1,0 +1,60 @@
+
+  <app-nav></app-nav>
+ 
+  <div id="main">
+    {{date}}
+    <br>
+    <br>
+    <div class="card text-center " style="background-color: black;">
+      <div class="card-header">
+        <h3 class="orange-text">Quote of the Day</h3> 
+      </div>
+      <div class="card-body">
+        
+        <p class="card-text text-white" aria-setsize="20px">{{quote}}</p>
+        
+      </div>
+     
+    </div>
+  </div>
+  <br>
+  <br>
+  <div>
+  <h3 class="orange-text"> Orders waiting</h3>
+  <br>
+  <table class="table text-white">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Paiement</th>
+        <th scope="col">Party type</th>
+        <th scope="col">Party theme</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <p >Orders Not Ready</p>
+      <tr *ngFor="let ord of incompleted_orders; index as i" >
+        <th scope="row">{{i+1}}</th>
+        <td>{{ord.order_Date}}</td>
+        <td>{{ord.paid}}</td>
+        <td>{{ord.party_type}}</td>
+        <td>{{ord.party_theme}}</td>
+        <td> <button (click)="update()" style="background-color: rgb(207, 64, 11); color: white;"> Order ready?</button></td>
+      </tr>
+      <p>Orders Ready</p>
+      <tr *ngFor="let order of completed_orders; index as j">
+        <th scope="row">{{j+1}}</th>
+        <td>{{order.order_Date}}</td>
+        <td>{{order.paid}}</td>
+        <td>{{order.party_type}}</td>
+        <td>{{order.party_theme}}</td>
+        <td> <button style="background-color: rgb(207, 64, 11); color: white;"> deliver order?</button></td>
+      </tr>  
+     </tbody>
+  </table>
+  <br>
+      
+ 
+</div>
